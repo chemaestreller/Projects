@@ -20,7 +20,7 @@ class Hand:
         self.cards.append(card)
 
     def display(self, show_cards=True):
-        print(f"There are {len(self.cards)} cards in your hand: ")
+        print(f"There are {len(self.cards)} cards in your hand: ") 
         for card in self.cards:
             card.display()
             # print(card.value)
