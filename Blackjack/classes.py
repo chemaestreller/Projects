@@ -14,22 +14,28 @@ class Card:
 class Hand:
     def __init__(self):
         self.cards=[]
+        self.valid=True
         # self.chips=chips TODO
 
     def get(self, card):
         self.cards.append(card)
 
-    def display(self, show_cards=True):
-        print(f"There are {len(self.cards)} cards in your hand: ") 
-        for card in self.cards:
-            card.display()
-            # print(card.value)
-            pass
+    def display(self, show_num=True):
+        if show_num:
+            print(f"There are {len(self.cards)} cards in your hand: ") 
+            for card in self.cards:
+                card.display()
+                # print(card.value)
+                pass
+        else:
+            for card in self.cards:
+                card.display()
 
     def view(self):
         # method for showing initial dealer draw
         print("The dealer's visible card is: ")
         self.cards[0].display()
+        print("\n")
 
     def value(self):
         # self.cards.sort(key=lambda card: card.value == "A")
@@ -51,9 +57,8 @@ class Hand:
                 else:
                     # evaluates for J, K, Q
                     total += 10
-        print(f"Hand value: {total}") 
-        self.value = total
-        # return total
+        # print(f"Hand value: {total}") 
+        return total
             
 class Deck:
     def __init__(self):
